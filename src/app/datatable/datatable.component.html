@@ -1,0 +1,116 @@
+<div class="row">
+  <div class="col-md-6">
+    <div *ngIf="tableBtnOptions" class="btn-group btn-group-sm mr-2 mb-2" role="group">
+      <button *ngFor="let btnTable of tableBtnOptions"
+        (click)="btnTable.action()"
+        type="button"
+        class="btn btn-secondary"
+        data-toggle="tooltip"
+        data-placement="bottom"
+        [title]="btnTable.title">
+        <div *ngIf="btnTable.icon; then btnTableIcon; else btnTableTitle"></div>
+        <ng-template #btnTableIcon>
+          <i *ngIf="btnTable.icon.origin === 'bootstrap'" [class]="btnTable.icon.icon"></i>
+          <img *ngIf="btnTable.icon.origin === 'img'" [attr.src]="btnTable.icon.icon" class="img-icon">
+        </ng-template>
+        <ng-template #btnTableTitle>{{btnTable.title}}</ng-template>
+      </button>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="showSearcher" class="input-group input-group-sm mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text" id="btnGroupAddon">🔎</div>
+      </div>
+      <input type="text" class="form-control"
+        placeholder="Buscar en la tabla" aria-label="Buscar en la tabla"
+        (keyup)="applyFilter($event.target.value)">
+    </div>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-sm table-striped">
+    <thead>
+      <tr>
+        <th *ngIf="showNumeration">#<!--span class="text-muted float-right">⬇️⬆️</span--></th>
+        <th *ngFor="let head of getHeaders()">{{head.value}}</th>
+        <th *ngIf="rowBtnOptions">⚙️</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of getPageData(); let i = index">
+        <td *ngIf="showNumeration">{{i + getPageRowStart()}}</td>
+        <td *ngFor="let key of getHeaders()">{{row[key.id]}}</td>
+        <th *ngIf="rowBtnOptions">
+          <div class="row" style="margin: auto;">
+            <div *ngFor="let btnRow of rowBtnOptions"
+              (click)="btnRow.action(row)"
+              class="btn-row">
+              <div *ngIf="btnRow.icon; then btnRowIcon; else btnRowTitle"></div>
+              <ng-template #btnRowIcon>
+                <i *ngIf="btnRow.icon.origin === 'bootstrap'" [class]="btnRow.icon.icon"
+                  data-toggle="tooltip" data-placement="bottom" [title]="btnRow.title"></i>
+                <img *ngIf="btnRow.icon.origin === 'img'" [attr.src]="btnRow.icon.icon" class="img-icon"
+                  data-toggle="tooltip" data-placement="bottom" [title]="btnRow.title">
+              </ng-template>
+              <ng-template #btnRowTitle>
+                <small>{{btnRow.title}}</small>
+              </ng-template>
+            </div>
+          </div>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div *ngIf="showSizeOptions"
+      class="input-group input-group-sm mr-2 mb-2 select-page-size">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="">Renglones por página</label>
+      </div>
+      <select class="custom-select" (change)="changePageSize($event.target.value)">
+        <option *ngFor="let option of pageSizeOptions"
+          [value]="option"
+          [selected]="option === pageSize? 'selected': null">
+          {{option}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <nav *ngIf="showPaginator">
+      <ul class="pagination pagination-sm justify-content-end">
+        <li class="page-item">
+          <span class="page-link paginator-label">
+            {{getPageRowStart()}} - {{getPageRowEnd()}} de {{this.getDataSource().length}}
+          </span>
+        </li>
+        <li class="page-item" [ngClass]="{'disabled': pageIndex === 1}">
+          <a class="page-link" href="javascript:void(0);" (click)="goFirstPage()">
+            <span aria-hidden="true">[&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item" [ngClass]="{'disabled': pageIndex === 1}">
+          <a class="page-link" href="javascript:void(0);" (click)="goPreviousPage()">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item"><span class="page-link paginator-label">{{pageIndex}}</span></li>
+        <li class="page-item" [ngClass]="{'disabled': pageIndex === getLastPage()}">
+          <a class="page-link" href="javascript:void(0);" (click)="goNextPage()">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        <li class="page-item" [ngClass]="{'disabled': pageIndex === getLastPage()}">
+          <a class="page-link" href="javascript:void(0);" (click)="goLastPage()">
+            <span aria-hidden="true">&raquo;]</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
