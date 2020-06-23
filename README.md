@@ -1,6 +1,6 @@
 # BootstrangularDatatable
 
-Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 9.1.7 por [Andrés Martínez González](https://github.com/andres-geotec).
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 9.1.11 por [Andrés Martínez González](https://github.com/andres-geotec).
 
 ## Descripción
 
