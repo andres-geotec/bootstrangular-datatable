@@ -2,6 +2,7 @@
   "name": "bootstrangular-datatable",
   "version": "0.0.0",
   "scripts": {
+    "dev": "ng serve --port=4200 -o",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
