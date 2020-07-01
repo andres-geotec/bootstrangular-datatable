@@ -8,7 +8,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:lib": "ng-packagr -p projects/datatable/ng-package.json",
+    "build:lib:copy": "ng-packagr -p projects/datatable/ng-package.json; cp README.md dist/datatable/README.md; cp LICENSE dist/datatable/LICENSE; cp CODE_OF_CONDUCT.md dist/datatable/CODE_OF_CONDUCT.md"
   },
   "private": true,
   "dependencies": {
