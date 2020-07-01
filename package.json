@@ -1,6 +1,6 @@
 {
   "name": "bootstrangular-datatable",
-  "version": "0.0.0",
+  "version": "1.0.0-beta.1",
   "scripts": {
     "dev": "ng serve --port=4200 -o",
     "ng": "ng",
@@ -52,5 +52,24 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "description": "Este es un simple modulo de tabla interactiva al estilo de Angular, Bootstrap y Datatable. Necesita angular/core, bootstrap y sus dependencias (jquery y popper) para funcionar.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andres-geotec/bootstrangular-datatable.git"
+  },
+  "keywords": [
+    "angular",
+    "bootstrap",
+    "datatable",
+    "fontawesome",
+    "table-paginator",
+    "table-buttons",
+    "table-filter"
+  ],
+  "author": "Andrés Martínez González <andres.geotec@gmail.com> (https://github.com/andres-geotec)",
+  "bugs": {
+    "url": "https://github.com/andres-geotec/bootstrangular-datatable/issues"
+  },
+  "homepage": "https://github.com/andres-geotec/bootstrangular-datatable#readme"
 }
