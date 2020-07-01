@@ -1,9 +1,31 @@
 <div class="container">
-  <h1>{{title}}</h1>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h1">{{title}}</h1>
+  </div>
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Componente en desarrollo</h2>
+  </div>
 
   <datatable-dev [dataSource]="dataSource"
     [headers]="headers"
     [showNumeration]="true"
-    [pageSizeOptions]="[10, 25, 50, 100]">
+    [pageSizeOptions]="[10, 25, 50, 100]"
+    [tableBtnOptions]="tableBtnOptions"
+    [rowBtnOptions]="rowBtnOptions">
   </datatable-dev>
+
+  <hr>
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Librería para producción</h2>
+  </div>
+
+  <datatable [dataSource]="dataSource"
+    [headers]="headers"
+    [showNumeration]="true"
+    [pageSizeOptions]="[10, 25, 50, 100]"
+    [tableBtnOptions]="tableBtnOptions"
+    [rowBtnOptions]="rowBtnOptions">
+  </datatable>
 </div>

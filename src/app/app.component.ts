@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BtnOption } from './datatable/datatable.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,26 @@ export class AppComponent {
     lng: "Longitud",
     lat: "Latitud"
   };
+  public tableBtnOptions: BtnOption[] = [{
+    title: 'Imprimir',
+    icon: {
+      origin: 'bootstrap',
+      icon: 'fas fa-print'
+    },
+    action: () => {
+      alert('se va a imprimir');
+    }
+  }];
+  public rowBtnOptions: BtnOption[] = [{
+    title: 'Editar',
+    action: (row: any) => {
+      console.log(row, 'se va a editar');
+    },
+    icon: {
+      origin: 'bootstrap',
+      icon: 'fas fa-edit'
+    }
+  }];
 }
 
 let points: any = {
