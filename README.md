@@ -31,7 +31,7 @@ export class AppComponent {
 
 ```javascript
 import salary from './../assets/data/salary';
-import { BtnOption } from 'datatable';
+import { BtnOption } from 'bootstrangular-datatable';
 ...
 export class AppComponent {
   public dataSource: any[] = salary.data;
@@ -89,7 +89,7 @@ npm i bootstrangular-datatable
 ### Cargar modulo:
 
 ```javascript
-import { DatatableModule } from 'datatable';
+import { DatatableModule } from 'bootstrangular-datatable';
 @NgModule({
   ...
   imports: [
