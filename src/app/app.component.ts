@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { BtnOption } from './datatable/datatable.component';
-import points from './../assets/data/points';
+//import { BtnOption } from './datatable/datatable.component';
+import { BtnOption } from 'datatable';
 import salary from './../assets/data/salary';
 
 @Component({
@@ -12,17 +12,12 @@ export class AppComponent {
   public title: string = 'BootstrangularDatatable';
   public dataSource: any[] = salary.data;
   public headers: any = {
-    //"id": "Clave",
     "name": "Nombre",
     "position": "Puesto",
     "salary": "Salario",
     "start_date": "Fecha de inicio",
     "office": "Oficina",
     "extn": "Extención"
-    /*devicetime: "Dispositivo",
-    timestamp: "Registro",
-    lng: "Longitud",
-    lat: "Latitud"*/
   };
   public tableBtnOptions: BtnOption[] = [{
     title: 'Imprimir',
@@ -31,7 +26,7 @@ export class AppComponent {
       icon: 'fas fa-print'
     },
     action: () => {
-      alert('Se van a imprimir ' + this.dataSource.length + ' registros');
+      alert(`Se van a imprimir ${this.dataSource.length} registros`);
     }
   }];
   public rowBtnOptions: BtnOption[] = [{
