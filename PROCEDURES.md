@@ -23,7 +23,7 @@ En este caso, como necesita [bootstrap](https://www.npmjs.com/package/bootstrap)
 
 Ejecuta `ng generate library <lib-name>` para generar la librería que se va a publicar. En este caso `ng generate library datatable`.
 
-> NOTA: Configuración adicional. En este paso, como se está trabajando con VS Code se tubo que configurar el 'max_user_watches' con el comando `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`, el valor por default de la variable es de `8192`, también puedes visitar [Visual Studio Code (error ENOSPC)](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc) para obtener detalles.
+> NOTA: Configuración adicional. En este paso, como se está trabajando con VS Code se tubo que configurar el 'max_user_watches' con el comando `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`, el valor por default de la variable es de `8192`. Ejecuta `cat /proc/sys/fs/inotify/max_user_watches` para ver el valor actual de la variable. Visitar [Visual Studio Code (error ENOSPC)](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc) para obtener detalles.
 
 A partir de esta sección puede vacear el código en los modulos de la librería o configurarla como sea necesario y realizar las pruebas pertinentes. Este paso se puede generar antes o despúes de la [configuración prepublish](./PROCEDURES.md#configuración-prepublish).
 
@@ -71,5 +71,5 @@ Revisa la documentación en [Configuring npm](https://docs.npmjs.com/files/packa
 
 # Publicar en NPM
 
-Ejecuta `npm publish --access=public` para publicar el paquete con acceso público. En este caso, como solo se debe publicar la librería cnstruida, se tiene que acceder al directorio `dist/datatable` despues de [construir la librería](./PROCEDURES.md#construir-librería) para iniciar la pubblicación.
+Ejecuta `npm publish --access=public` para publicar el paquete con acceso público. En este caso, como solo se debe publicar la librería construida, se tiene que acceder al directorio `dist/datatable` despues de [construir la librería](./PROCEDURES.md#construir-librería) para iniciar la pubblicación.
 
