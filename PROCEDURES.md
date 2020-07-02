@@ -17,7 +17,7 @@ Ejecuta `git remote add origin <link repository>` para agregar el repositorio re
 
 Se recomienda que antes de crear la librería o compilarla se realicen pruebas de funcionabilidad a través de componentes.
 
-En este caso, como necesita bootstrap y sus dependencias (jquery y popper) para funcionar, se intalarán con el siguiente comando `npm i bootstrap jquery popper.js` para realizar pruebas. Además, se complementa con los iconos de [Fontawesome](https://fontawesome.com/icons?d=gallery) con el comando `npm i @fortawesome/fontawesome-free`.
+En este caso, como necesita [bootstrap](https://www.npmjs.com/package/bootstrap) y sus dependencias ([jquery](https://www.npmjs.com/package/jquery) y [popper](https://www.npmjs.com/package/popper.js)) para funcionar, se intalarán con el siguiente comando `npm i bootstrap jquery popper.js` para realizar pruebas. Además, se complementa con los iconos de [Fontawesome](https://fontawesome.com/icons?d=gallery) con el comando `npm i @fortawesome/fontawesome-free`.
 
 ## Creación de la librería
 
