@@ -8,9 +8,10 @@ Estos son los pasos que se siguieron para generar esta librería.
 echo "# BootstrangularDatatableStylelint" >> README.md
 git init
 git remote add origin https://github.com/andres-geotec/bootstrangular-datatable-stylelint.git
-npm init
+npm init -y
 npm i @angular/common @angular/compiler @angular/core @angular/platform-browser @angular/platform-browser-dynamic
 npm i -D @angular-devkit/build-angular @angular-devkit/build-ng-packagr @angular/cli @angular/compiler-cli @types/node codelyzer core-js cpx deploy-to-git mkdirp ng-packagr rimraf rxjs stylelint stylelint-config-standard stylelint-order terser ts-node tsickle tslint typescript watch zone.js
+
 ```
 
 ### Parámetros npm init
