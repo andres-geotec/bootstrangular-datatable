@@ -1,59 +1,24 @@
 {
   "name": "bootstrangular-datatable",
-  "version": "1.0.0-beta.2",
-  "scripts": {
-    "dev": "ng serve --port=4200 -o",
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build:lib": "ng-packagr -p projects/datatable/ng-package.json",
-    "build:lib:copy": "ng-packagr -p projects/datatable/ng-package.json; cp README.md dist/datatable/README.md; cp LICENSE dist/datatable/LICENSE; cp CODE_OF_CONDUCT.md dist/datatable/CODE_OF_CONDUCT.md"
-  },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "~9.1.9",
-    "@angular/common": "~9.1.9",
-    "@angular/compiler": "~9.1.9",
-    "@angular/core": "~9.1.9",
-    "@angular/forms": "~9.1.9",
-    "@angular/platform-browser": "~9.1.9",
-    "@angular/platform-browser-dynamic": "~9.1.9",
-    "@angular/router": "~9.1.9",
-    "@fortawesome/fontawesome-free": "^5.13.1",
-    "bootstrap": "^4.5.0",
-    "jquery": "^3.5.1",
-    "popper.js": "^1.16.1",
-    "rxjs": "~6.5.4",
-    "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.7",
-    "@angular-devkit/build-ng-packagr": "~0.901.9",
-    "@angular/cli": "~9.1.7",
-    "@angular/compiler-cli": "~9.1.9",
-    "@types/node": "^12.11.1",
-    "@types/jasmine": "~3.5.0",
-    "@types/jasminewd2": "~2.0.3",
-    "codelyzer": "^5.1.2",
-    "jasmine-core": "~3.5.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~5.0.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~2.1.0",
-    "karma-jasmine": "~3.0.1",
-    "karma-jasmine-html-reporter": "^1.4.2",
-    "ng-packagr": "^9.0.0",
-    "protractor": "~7.0.0",
-    "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
-    "typescript": "~3.8.3"
-  },
-  "license": "MIT",
+  "version": "1.0.0-beta.3",
   "description": "Este es un simple modulo de tabla interactiva al estilo de Angular, Bootstrap y Datatable. Necesita angular/core, bootstrap y sus dependencias (jquery y popper) para funcionar.",
+  "main": "index.js",
+  "scripts": {
+    "ng": "ng",
+    "lint": "ng lint",
+    "start": "ng serve app",
+    "build": "ng build lib",
+    "deploy": "deploy-to-git",
+    "prepare": "ng build lib --prod; cp README.md dist/lib/README.md; cp LICENSE dist/lib/LICENSE; cp CODE_OF_CONDUCT.md dist/lib/CODE_OF_CONDUCT.md",
+    "publish": "npm publish ./dist/lib",
+    "predeploy": "rimraf ./dist/app && mkdirp ./dist/app"
+  },
+  "tslint": {
+    "extends": "./tslint.json"
+  },
+  "stylelint": {
+    "extends": "./stylelint.json"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andres-geotec/bootstrangular-datatable.git"
@@ -68,8 +33,58 @@
     "table-filter"
   ],
   "author": "Andrés Martínez González <andres.geotec@gmail.com> (https://github.com/andres-geotec)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/andres-geotec/bootstrangular-datatable/issues"
   },
-  "homepage": "https://andres-geotec.github.io/bootstrangular-datatable/"
+  "homepage": "https://andres-geotec.github.io/bootstrangular-datatable/",
+  "config": {
+    "deployToGit": {
+      "repository": "git@github.com:andres-geotec/bootstrangular-datatable.git",
+      "branch": "gh-pages",
+      "folder": "dist/app",
+      "script": "ng build app --prod -- --base-href=bootstrangular-datatable --delete-output-path=false",
+      "commit": "Publishing $npm_package_version",
+      "user": {
+        "name": "Andrés Martínez González",
+        "email": "andres.geotec@gmail.com"
+      }
+    }
+  },
+  "dependencies": {
+    "@angular/common": "^10.0.2",
+    "@angular/compiler": "^10.0.2",
+    "@angular/core": "^10.0.2",
+    "@angular/platform-browser": "^10.0.2",
+    "@angular/platform-browser-dynamic": "^10.0.2",
+    "@fortawesome/fontawesome-free": "^5.13.1",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.1000.1",
+    "@angular-devkit/build-ng-packagr": "^0.1000.1",
+    "@angular/cli": "^10.0.1",
+    "@angular/compiler-cli": "^10.0.2",
+    "@types/node": "^14.0.14",
+    "codelyzer": "^6.0.0",
+    "core-js": "^3.6.5",
+    "cpx": "^1.5.0",
+    "deploy-to-git": "^0.1.5",
+    "mkdirp": "^1.0.4",
+    "ng-packagr": "^10.0.0",
+    "rimraf": "^3.0.2",
+    "rxjs": "^6.6.0",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
+    "terser": "^4.8.0",
+    "ts-node": "^8.10.2",
+    "tsickle": "^0.39.0",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.6",
+    "watch": "^1.0.2",
+    "zone.js": "^0.10.3"
+  }
 }

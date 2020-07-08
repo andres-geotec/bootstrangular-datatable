@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -11,14 +11,16 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "lib": [
       "es2018",
       "dom"
     ],
     "paths": {
-      "datatable": [
-        "dist/datatable/datatable",
-        "dist/datatable"
+      "bootstrangular-datatable": [
+        "dist/lib"
       ]
     }
   },
